@@ -20,8 +20,7 @@
     state: directory
     path: "{{ java_home }}"
     mode: 0755
-- name: Extract java in the installation directory
-  become: true
+- name: Extract java in the installation directory 
   unarchive:
     copy: false
     src: "/tmp/jdk-{{ jdk_distr_name }}"
@@ -29,8 +28,7 @@
     extra_opts: [--strip-components=1]
     creates: "{{ java_home }}/bin/java"
   tags: skip_ansible_lint
-- name: Export environment variables
-  become: true
+- name: Export environment variables  
   template:
     src: jdk.sh.j2
     dest: /etc/profile.d/jdk.sh
