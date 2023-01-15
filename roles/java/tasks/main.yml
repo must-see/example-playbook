@@ -15,8 +15,7 @@
   register: download_java_remote_binaries
   until: download_java_remote_binaries is succeeded
   when: jdk_distr_type == 'remote'
-- name: Ensure installation dir exists
-  become: true
+- name: Ensure installation dir exists 
   file:
     state: directory
     path: "{{ java_home }}"
